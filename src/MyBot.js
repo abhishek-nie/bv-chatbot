@@ -21,7 +21,7 @@ const MyBot = ( { navigation }) => {
 
 <div>
           {!showChat 
-            ? <button className="btn" onClick={() => startChat()}> Help </button>
+            ? <button className="btn" onClick={() => startChat()}> BV Bot </button>
             : <button className="btn" onClick={() => hideChat()}> Done </button>}
 </div>
 </div>

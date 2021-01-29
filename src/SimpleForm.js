@@ -2,13 +2,28 @@
 import React, { Component } from 'react';
 import ChatBot from 'react-simple-chatbot';
 import Rating from "./Rating";
-import EnduranceCycle from './EnduranceCycle'
+import EnduranceCycle from './EnduranceCycle';
+import './App.css';
+import { ThemeProvider } from 'styled-components';
 
 
 class SimpleForm extends Component {
+
     render() {
+      const theme =  {
+        
+        fontFamily: '',
+        headerBgColor: 'rgb(0, 0, 153)',
+        headerFontColor: 'white',
+        headerFontSize: '15px',
+        botBubbleColor: 'rgb(0, 0, 153)',
+        botFontColor: 'white',
+        userBubbleColor: 'rgb(0, 0, 153)',
+        
+    }
       return (
-<ChatBot
+        <ThemeProvider theme={theme}>
+<ChatBot 
 headerTitle='My Review'
          recognitionEnable={true}
         //speechSynthesis={{ enable: true, lang: 'en' }}
@@ -54,13 +69,13 @@ headerTitle='My Review'
             },
             {
               id:'No',
-              message:'Thankyou for valueable feedback, Please press submit button',
-              trigger:'ratingSubmit'
+              message:'Thankyou for valueable feedback, Please press Done button',
+              // trigger:'ratingSubmit'
             },
-            {
-              id:'ratingSubmit',
-              component:(<button style={{background:'blue',color:'white'}}>Submit</button>)
-            },
+            // {
+            //   id:'ratingSubmit',
+            //   component:(<button style={{background:'blue',color:'white'}}>Submit</button>)
+            // },
 
             {id:'Yes',
             message:'Please Provide a nickname!',
@@ -102,7 +117,7 @@ headerTitle='My Review'
             {
               id:'NoRec',
               message:'Thankyou for valueable feedback, Please press submit button',
-              trigger:'ratingSubmit'
+              // trigger:'ratingSubmit'
             },
             {id:'frnd',
           message:'Would you recommend this product to your friend?',
@@ -130,12 +145,13 @@ headerTitle='My Review'
             id:'final',
             delay:3000,
             message:'Thankyou for valueable feedback, Please press submit button',
-            trigger:'ratingSubmit'
+            //trigger:'ratingSubmit'
           }
            
            
           ]}
         />
+        </ThemeProvider>
       );
     }
   }
